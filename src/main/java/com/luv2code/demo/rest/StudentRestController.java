@@ -47,21 +47,35 @@ public class StudentRestController {
     }
 
 
-    //Add an exception handler using @ExceptionHandler
-    @ExceptionHandler
-    public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException exc){
-
-        //create a StudentErrorResponse
-        StudentErrorResponse error = new StudentErrorResponse();
-
-        error.setStatus(HttpStatus.NOT_FOUND.value());
-        error.setMessage(exc.getMessage());
-        error.setTimestamp(System.currentTimeMillis());
-
-        //return ResponseEntity
-
-        return new ResponseEntity<>(error /* error body */, HttpStatus.NOT_FOUND /*status code*/);
-    }
+//    //Add an exception handler using @ExceptionHandler
+//    @ExceptionHandler
+//    public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException exc){
+//
+//        //create a StudentErrorResponse
+//        StudentErrorResponse error = new StudentErrorResponse();
+//
+//        error.setStatus(HttpStatus.NOT_FOUND.value());
+//        error.setMessage(exc.getMessage());
+//        error.setTimestamp(System.currentTimeMillis());
+//
+//        //return ResponseEntity
+//
+//        return new ResponseEntity<>(error /* error body */, HttpStatus.NOT_FOUND /*status code*/);
+//    }
+//
+//    //add another exception handler to catch any exception (catch all)
+//    @ExceptionHandler
+//    public ResponseEntity<StudentErrorResponse> handleException(Exception /*generic exception type */ exc){
+//        StudentErrorResponse error = new StudentErrorResponse();
+//
+//        //build the error body
+//        error.setStatus(HttpStatus.BAD_REQUEST.value());
+////        error.setMessage(exc.getMessage()); // use the generic error message
+//        error.setMessage("Invalid id provided"); // hardcode the error message
+//        error.setTimestamp(System.currentTimeMillis());
+//
+//        return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST );
+//    }
 
 }
 
